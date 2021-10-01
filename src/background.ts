@@ -3,11 +3,18 @@
 import { app, protocol, BrowserWindow, ipcMain } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS3_DEVTOOLS } from 'electron-devtools-installer'
-import { FileLogger } from './file_logger'
+// import { FileLogger } from './file_logger'
 import * as path from 'path'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
+class TestClass {
+  str: string;
+  constructor(str: string) {
+    this.str = str;
+    console.log(str);
+  }
+}
 // import winston from 'winston';
 
 // Scheme must be registered before the app is ready
@@ -61,14 +68,15 @@ app.on('activate', () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', async () => {
-  const logger = new FileLogger(app)
+  const test_class = new TestClass('test');
+  // const logger = new FileLogger(app)
   // const logger = winston.createLogger({
   //   level: 'info',
   //   transports: [
   //     new winston.transports.File({ filename: 'testlog.log' })
   //   ]
   // })
-  logger.log('dog', 'info')
+  // logger.log('dog', 'info')
   if (isDevelopment && !process.env.IS_TEST) {
     // Install Vue Devtools
     try {
