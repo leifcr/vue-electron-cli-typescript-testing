@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <h1 id="appVersion" class="p-hidden">1.2.3</h1>
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -46,6 +47,15 @@ export default class HelloWorld extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.p-hidden {
+  color: red;
+  background-color: blue;
+}
+
+.p-badge{
+  border: 4px solid black;
+}
+
 h3 {
   margin: 40px 0 0;
 }
